@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section id="topUL">THE LANDSKECHT</section>
+
+<section id="main">
+
+    <div class="scoringContainers">
+        <h1 id="userTitle1" class="usernameTitles"></h1>
+        <input id="user1" type="text" placeholder="Username">
+        <input id="disad1" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal1" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box1" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average1">Average:</h1>
+    </div>
+
+    <div class="scoringContainers">
+        <h1 id="userTitle2" class="usernameTitles"></h1>
+        <input id="user2" type="text" placeholder="Username">
+        <input id="disad2" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal2" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box2" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average2">Average:</h1>
+    </div>
+
+    <div class="scoringContainers">
+        <h1 id="userTitle3" class="usernameTitles"></h1>
+        <input id="user3" type="text" placeholder="Username">
+        <input id="disad3" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal3" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box3" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average3">Average:</h1>
+    </div>
+
+    <div class="scoringContainers">
+        <h1 id="userTitle4" class="usernameTitles"></h1>
+        <input id="user4" type="text" placeholder="Username">
+        <input id="disad4" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal4" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box4" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average4">Average:</h1>
+    </div>
+
+    <div class="scoringContainers">
+        <h1 id="userTitle4" class="usernameTitles"></h1>
+        <input id="user4" type="text" placeholder="Username">
+        <input id="disad4" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal4" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box4" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average4">Average:</h1>
+    </div>
+
+    <div class="scoringContainers">
+        <h1 id="userTitle4" class="usernameTitles"></h1>
+        <input id="user4" type="text" placeholder="Username">
+        <input id="disad4" type="number" step="0.1" placeholder="2 vs 1 Score">
+        <input id="equal4" type="number" step="0.1" placeholder="1 vs 1 Score">
+        <input id="box4" type="number" step="0.1" placeholder="Box Score">
+        <h1 class="averages" id="average4">Average:</h1>
+    </div>
+
+</section>
+
+<script>
+
+function calculateAverageScore(playerNumber) {
+    let userTitle = document.getElementById("userTitle"+playerNumber)
+    let username = document.getElementById("user"+playerNumber);
+    let disad = document.getElementById("disad"+playerNumber);
+    let equal = document.getElementById("equal"+playerNumber);
+    let box = document.getElementById("box"+playerNumber);
+    let average = document.getElementById("average"+playerNumber);
+
+    username.addEventListener("input", function(){
+        userTitle.textContent = username.value;
+    })
+
+
+    function updateAverageScore() {
+    
+        const score1 = parseFloat(disad.value);
+        const score2 = parseFloat(equal.value);
+        const score3 = parseFloat(box.value);
+
+        const averageScore = (score1 + score2 + score3) / 3;
+
+        average.textContent = "Average Score: " + averageScore.toFixed(2);
+    }
+
+    disad.addEventListener("input", updateAverageScore);
+    equal.addEventListener("input", updateAverageScore);
+    box.addEventListener("input", updateAverageScore);
+}
+
+calculateAverageScore(1)
+calculateAverageScore(2)
+calculateAverageScore(3)
+calculateAverageScore(4)
+
+</script>
+</body>
+</html>
